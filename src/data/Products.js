@@ -2,13 +2,13 @@ const products = [
   {
     id: "pcm",
     name: "Passage Control Module",
-    image: "/products/pcm.png",
+    image: "/products/pcm.webp",
     desc: "Automated system for secure and efficient train passage monitoring.",
   },
   {
     id: "wlm",
     name: "Water Level Monitoring",
-    image: "/products/wlm.png",
+    image: "/products/wlm.webp",
     desc: "Real-time water level tracking system for railway infrastructure.",
   },
   {

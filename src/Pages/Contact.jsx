@@ -10,7 +10,7 @@ function Contact() {
 
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/bg/contact.png')" }}
+          style={{ backgroundImage: "url('/bg/contact.webp')" }}
         >
           <div className="absolute inset-0"></div>
         </div>

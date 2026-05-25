@@ -23,19 +23,19 @@ const slides = [
     title: "IQNET SYSTEMS",
     highlight: "No 1 HABD Manufacturer In India",
     desc: "Leading railway safety solutions provider.",
-    img: "/bg/slide.png"
+    img: "/bg/slide.webp"
   },
   {
       title: "Next-Gen Inspection using",
     highlight: "AI & Machine Vision",
 desc: "AI-powered inspection with high-speed imaging and intelligent analytics.",
-    img:  "/bg/track.png"
+    img:  "/bg/track.webp"
   },
   {
   title: "Redefining Railway Safety",
   highlight: "Precision. Intelligence. Reliability.",
        desc: "Advanced railway monitoring solutions for safer operations.",
-    img:  "/bg/wheel.png"
+    img:  "/bg/wheel.webp"
   }
 ];
 
@@ -77,11 +77,11 @@ desc: "AI-powered inspection with high-speed imaging and intelligent analytics."
   const clients = [
   {
     name: "Indian Railways",
-    logo: "/clients/railway.png"
+    logo: "/clients/railway.webp"
   },
   {
     name: "Metro Rail",
-    logo: "/clients/metroo.png"
+    logo: "/clients/metroo.webp"
   }
 ];
 
@@ -103,11 +103,11 @@ const slideAnimation = {
   const productSlides = [
   {
     name: "Passage Control Module",
-    img: "/products/pcm.jpg",
+    img: "/products/pcm.webp",
   },
   {
     name: "Water Level Monitoring",
-    img: "/products/WaterLevel.jpg",
+    img: "/products/wlm.webp",
   },
   {
     name: "Passenger Display",
@@ -215,11 +215,17 @@ const handleArrowClick = () => {
 
   {/* 🔥 Fixed Background */}
   <div
-    className="absolute inset-0 bg-center bg-cover bg-no-repeat"
-    style={{
-      backgroundImage: `url(${slides[current].img})`,
-      backgroundAttachment: "fixed"
-    }}
+   className="
+  absolute inset-0
+  bg-center bg-cover bg-no-repeat
+
+  max-[760px]:bg-top
+"
+   style={{
+  backgroundImage: `url(${slides[current].img})`,
+  backgroundAttachment:
+    window.innerWidth > 760 ? "fixed" : "scroll",
+}}
   >
     <div className="absolute inset-0 "></div>
   </div>
@@ -386,18 +392,18 @@ const handleArrowClick = () => {
 
           {/* 🔥 ICON */}
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 z-20">
-            <div className="
-              w-16 h-16 flex items-center justify-center
-              rounded-2xl text-2xl text-white
+         <div className="
+  w-16 h-16 flex items-center justify-center
+  rounded-2xl text-2xl text-white
 
-              bg-gradient-to-br from-[#0A4174] to-blue-500
-              shadow-[0_0_20px_rgba(10,65,116,0.5)]
+  bg-gradient-to-br from-[#FF4F18] to-orange-500
+  shadow-[0_0_20px_rgba(300,79,24,0.45)]
 
-              group-hover:scale-110
-              transition duration-300
-            ">
-              {service.icon}
-            </div>
+  group-hover:scale-110
+  transition duration-300
+">
+  {service.icon}
+</div>
           </div>
 
           {/* 🔥 CARD */}
@@ -486,112 +492,162 @@ const handleArrowClick = () => {
 
     </div>
 
-    {/* 🔥 SUBTEXT */}
-    <p className="text-gray-500 mb-16 max-w-2xl mx-auto text-lg text-center">
-      Innovative technologies designed to improve railway safety,
-      monitoring, and passenger experience.
-    </p>
+    
 
     {/* 🔥 GRID */}
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+{products.map((product, index) => (
+  <motion.div
+    key={product.id}
+    initial={{ opacity: 0, y: 40, scale: 0.9 }}
+    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+    transition={{ duration: 0.6, delay: index * 0.1 }}
+    viewport={{ once: true }}
+    className="group cursor-pointer"
 
-      {products.map((product, index) => (
-        <motion.div
-          key={product.id}
-          initial={{ opacity: 0, y: 40, scale: 0.9 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.6, delay: index * 0.1 }}
-          viewport={{ once: true }}
-          className="group cursor-pointer"
+    // ✅ MOBILE CLICK
+    onClick={() => {
+      if (window.innerWidth < 760) {
+        navigate(`/products/${product.id}`);
+      }
+    }}
+  >
+
+    {/* 🔥 PERSPECTIVE */}
+    <div className="[perspective:1000px]">
+
+      {/* ================= CARD ================= */}
+      <div
+        className="
+          relative w-full h-[320px]
+          transition-transform duration-700
+          [transform-style:preserve-3d]
+
+          min-[760px]:group-hover:[transform:rotateY(180deg)]
+        "
+      >
+
+        {/* ================= FRONT ================= */}
+        <div
+          className="
+            absolute inset-0
+            rounded-2xl
+            bg-white
+            border border-gray-200
+            shadow-md
+            p-4
+
+            transition-all duration-500
+
+            group-hover:shadow-[0_0_25px_rgba(10,65,116,0.25)]
+
+            [backface-visibility:hidden]
+          "
         >
 
-          {/* 🔥 PERSPECTIVE */}
-          <div className="[perspective:1000px]">
-
-            {/* 🔥 FLIP CARD */}
-            <div className="
-              relative w-full h-[320px]
-              transition-transform duration-700
-              [transform-style:preserve-3d]
-              group-hover:[transform:rotateY(180deg)]
-            ">
-
-              {/* 🔵 FRONT */}
-              <div className="
-                absolute inset-0
-                rounded-2xl
-                bg-white
-                border border-gray-200
-                shadow-md
-                p-4
-
-                group-hover:shadow-[0_0_25px_rgba(10,65,116,0.25)]
-
-                [backface-visibility:hidden]
-              ">
-
-                {/* IMAGE */}
-                <div className="rounded-xl overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-[200px] object-cover transition duration-500 group-hover:scale-110"
-                  />
-                </div>
-
-                {/* NAME */}
-                <h3 className="mt-4 text-center text-lg font-semibold group-hover:text-[#0A4174] transition">
-                  {product.name}
-                </h3>
-
-              </div>
-
-              {/* 🔵 BACK */}
-              <div className="
-                absolute inset-0
-                rounded-2xl
-                flex flex-col justify-center items-center text-center
-                p-6
-
-                bg-white
-                border border-[#0A4174]/30
-                shadow-[0_0_25px_rgba(10,65,116,0.25)]
-
-                [transform:rotateY(180deg)]
-                [backface-visibility:hidden]
-              ">
-
-                <h3 className="text-lg font-semibold mb-3 text-[#0A4174]">
-                  {product.name}
-                </h3>
-
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  {product.desc}
-                </p>
-
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    navigate(`/products/${product.id}`);
-                  }}
-                  className="
-                    mt-4 px-5 py-2 text-sm rounded-lg
-                    bg-[#0A4174] text-white
-                    hover:bg-blue-500 
-                    transition
-                  "
-                >
-                  View Details
-                </button>
-
-              </div>
-
-            </div>
+          {/* IMAGE */}
+          <div className="rounded-xl overflow-hidden">
+            <img
+              src={product.image}
+              alt={product.name}
+              className="
+                w-full h-[200px]
+                object-cover
+                transition duration-500
+                group-hover:scale-110
+              "
+            />
           </div>
 
-        </motion.div>
-      ))}
+          {/* NAME */}
+          <h3
+            className="
+              mt-4 text-center text-lg font-semibold
+              transition
+              group-hover:text-[#0A4174]
+            "
+          >
+            {product.name}
+          </h3>
 
+          {/* 🔥 MOBILE BUTTON */}
+          <div className="mt-5 flex justify-center min-[760px]:hidden">
+            <button
+              className="
+                px-5 py-1 
+                rounded-lg
+                text-sm
+                bg-[#0A4174]
+                text-white
+                hover:bg-blue-500
+                transition
+              "
+            >
+              View Details
+            </button>
+          </div>
+
+        </div>
+
+        {/* ================= BACK SIDE (DESKTOP ONLY) ================= */}
+        <div
+          className="
+            hidden min-[760px]:flex
+
+            absolute inset-0
+            rounded-2xl
+
+            flex-col justify-center items-center
+            text-center
+            p-6
+
+            bg-white
+            border border-[#0A4174]/30
+
+            shadow-[0_0_25px_rgba(10,65,116,0.25)]
+
+            [transform:rotateY(180deg)]
+            [backface-visibility:hidden]
+          "
+        >
+
+          {/* TITLE */}
+          <h3 className="text-lg font-semibold mb-3 text-[#0A4174]">
+            {product.name}
+          </h3>
+
+          {/* DESC */}
+          <p className="text-sm text-gray-500 leading-relaxed">
+            {product.desc}
+          </p>
+
+          {/* BUTTON */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate(`/products/${product.id}`);
+            }}
+            className="
+              mt-4 px-5 py-2
+              text-sm rounded-lg
+
+              bg-[#0A4174]
+              text-white
+
+              hover:bg-blue-500
+              transition
+            "
+          >
+            View Details
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+  </motion.div>
+))}
     </div>
 
   </div>

@@ -12,7 +12,7 @@ function About() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/bg/about.png')" // 👉 add your image
+            backgroundImage: "url('/bg/about.webp')" // 👉 add your image
           }}
         >
           {/* 🔥 DARK OVERLAY */}

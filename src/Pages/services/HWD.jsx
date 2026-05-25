@@ -10,7 +10,7 @@ function HWD() {
 
   {/* 🔥 BACKGROUND IMAGE */}
   <img
-    src="/bg/hw.png"
+    src="/bg/hw.webp"
     alt="MVIS System"
     className="absolute inset-0 w-full h-full object-cover"
   />

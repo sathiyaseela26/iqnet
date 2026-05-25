@@ -11,7 +11,7 @@ function HABD() {
 
   {/* 🔥 BACKGROUND IMAGE */}
   <img
-    src="/bg/hab.png"
+    src="/bg/hab.webp"
     alt="MVIS System"
     className="absolute inset-0 w-full h-full object-cover"
   />

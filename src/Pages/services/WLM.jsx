@@ -10,7 +10,7 @@ function WLM() {
 
   {/* 🔥 BACKGROUND IMAGE */}
   <img
-    src="/bg/water.png"
+    src="/bg/water.webp"
     alt="MVIS System"
     className="absolute inset-0 w-full h-full object-cover"
   />
@@ -107,7 +107,7 @@ Waterlevel Monitoring System
 >
   <div className="w-full   overflow-hidden  shadow-xl">
     <img
-      src="/services/wlm.png"
+      src="/services/wlm.webp"
       alt="MVIS System"
       className="w-full h-full object-cover"
     />

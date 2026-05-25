@@ -29,7 +29,7 @@ function WLM_P() {
           className="relative group"
         >
           <img
-            src="/products/wlm.png"
+            src="/products/wlm.webp"
             alt="WLM"
             className="
               rounded-2xl

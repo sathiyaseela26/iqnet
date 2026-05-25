@@ -8,8 +8,7 @@ function Products() {
   return (
     <section className="bg-[#f8fafc] text-gray-900 py-20 px-6 md:px-20 min-h-screen">
 
-      {/* 🔥 Heading */}
-    {/* ================= TITLE WITH LINES ================= */}
+      {/* ================= TITLE ================= */}
       <div className="flex items-center justify-center mb-16">
 
         {/* LEFT LINE */}
@@ -27,9 +26,11 @@ function Products() {
           transition={{ duration: 0.6 }}
           className="mx-6 text-3xl md:text-5xl font-bold whitespace-nowrap"
         >
-         <span className="text-[#0A4174]">Our </span>
+          <span className="text-[#0A4174]">Our </span>
+
           <span className="bg-gradient-to-r from-[#FF4F18] to-orange-400 bg-clip-text text-transparent">
-             Products </span>
+            Products
+          </span>
         </motion.h1>
 
         {/* RIGHT LINE */}
@@ -41,7 +42,7 @@ function Products() {
         />
       </div>
 
-      {/* 🔥 Grid */}
+      {/* ================= PRODUCTS GRID ================= */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
 
         {products.map((product, index) => (
@@ -52,87 +53,131 @@ function Products() {
             transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ once: true }}
             className="group cursor-pointer"
+
+            // ✅ MOBILE CLICK NAVIGATION
+            onClick={() => {
+              if (window.innerWidth < 768) {
+                navigate(`/products/${product.id}`);
+              }
+            }}
           >
 
-            {/* 🔥 PERSPECTIVE */}
+            {/* PERSPECTIVE */}
             <div className="[perspective:1000px]">
 
-              {/* 🔥 FLIP CARD */}
-              <div className="
-                relative w-full h-[320px]
-                transition-transform duration-700
-                [transform-style:preserve-3d]
-                group-hover:[transform:rotateY(180deg)]
-              ">
+              {/* ================= FLIP CARD ================= */}
+              <div
+                className="
+                  relative w-full h-[320px]
+                  transition-transform duration-700
+                  [transform-style:preserve-3d]
 
-                {/* 🔵 FRONT */}
-                <div className="
-                  absolute inset-0
-                  rounded-2xl
-                  bg-white
-                  border border-gray-200
-                  shadow-sm
-                  p-4
+                  md:group-hover:[transform:rotateY(180deg)]
+                "
+              >
 
-                  group-hover:shadow-[0_0_25px_rgba(10,65,116,0.25)]
+                {/* ================= FRONT SIDE ================= */}
+                <div
+                  className="
+                    absolute inset-0
+                    rounded-2xl
+                    bg-white
+                    border border-gray-200
+                    shadow-sm
+                    p-4
 
-                  [backface-visibility:hidden]
-                ">
+                    transition-all duration-500
+                    group-hover:shadow-[0_0_25px_rgba(10,65,116,0.25)]
+
+                    [backface-visibility:hidden]
+                  "
+                >
 
                   {/* IMAGE */}
                   <div className="rounded-xl overflow-hidden">
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-[200px] object-cover transition duration-500 group-hover:scale-110"
+                      className="
+                        w-full h-[200px]
+                        object-cover
+                        transition duration-500
+                        group-hover:scale-110
+                      "
                     />
                   </div>
 
-                  {/* NAME */}
-                  <h3 className="mt-4 text-center text-lg font-semibold group-hover:text-[#0A4174] transition">
+                  {/* PRODUCT NAME */}
+                  <h3 className="mt-4 text-center text-lg font-semibold transition group-hover:text-[#0A4174]">
                     {product.name}
                   </h3>
 
+                  {/* MOBILE BUTTON */}
+                  <div className="mt-5 flex justify-center md:hidden">
+                    <button
+                      className="
+                        px-5 py-1
+                        rounded-lg
+                        text-sm
+                        bg-[#0A4174]
+                        text-white
+                        hover:bg-blue-500
+                        transition
+                      "
+                    >
+                      View Details
+                    </button>
+                  </div>
                 </div>
 
-                {/* 🔵 BACK */}
-                <div className="
-                  absolute inset-0
-                  rounded-2xl
-                  flex flex-col justify-center items-center text-center
-                  p-6
+                {/* ================= BACK SIDE (DESKTOP ONLY) ================= */}
+                <div
+                  className="
+                    hidden md:flex
+                    absolute inset-0
+                    rounded-2xl
 
-                  bg-white
-                  border border-[#0A4174]/30
-                  shadow-[0_0_25px_rgba(10,65,116,0.25)]
+                    flex-col justify-center items-center
+                    text-center
+                    p-6
 
-                  [transform:rotateY(180deg)]
-                  [backface-visibility:hidden]
-                ">
+                    bg-white
+                    border border-[#0A4174]/30
+                    shadow-[0_0_25px_rgba(10,65,116,0.25)]
 
+                    [transform:rotateY(180deg)]
+                    [backface-visibility:hidden]
+                  "
+                >
+
+                  {/* TITLE */}
                   <h3 className="text-lg font-semibold mb-3 text-[#0A4174]">
                     {product.name}
                   </h3>
 
+                  {/* DESCRIPTION */}
                   <p className="text-sm text-gray-500 leading-relaxed">
                     {product.desc}
                   </p>
 
+                  {/* BUTTON */}
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       navigate(`/products/${product.id}`);
                     }}
                     className="
-                      mt-4 px-5 py-2 text-sm rounded-lg
-                      bg-[#0A4174] text-white
+                      mt-5 px-5 py-2
+                      rounded-lg
+                      text-sm
+                      bg-[#0A4174]
+                      text-white
                       hover:bg-blue-500
                       transition
                     "
                   >
                     View Details
                   </button>
-
                 </div>
 
               </div>

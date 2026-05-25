@@ -10,7 +10,7 @@ function HBDDS() {
 
   {/* 🔥 BACKGROUND IMAGE */}
   <img
-    src="/bg/hwd.png"
+    src="/bg/hwd.webp"
     alt="MVIS System"
     className="absolute inset-0 w-full h-full object-cover"
   />

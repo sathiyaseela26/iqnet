@@ -29,7 +29,7 @@ function PCM_P() {
           className="relative group"
         >
           <img
-            src="/products/pcm.png"
+            src="/products/pcm.webp"
             alt="PCM"
             className="
               rounded-2xl

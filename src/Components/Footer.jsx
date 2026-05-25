@@ -1,5 +1,4 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 function Footer() {
@@ -37,23 +36,7 @@ function Footer() {
             safety, and real-time analytics for modern infrastructure.
           </p>
 
-          {/* SOCIAL */}
-          <div className="flex gap-4 pt-3">
-            {[FaFacebookF, FaLinkedinIn, FaTwitter].map((Icon, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -4, scale: 1.1 }}
-                className="
-                  p-2 rounded-lg cursor-pointer
-                  bg-white/10
-                  hover:bg-white hover:text-[#0A4174]
-                  transition
-                "
-              >
-                <Icon className="text-sm" />
-              </motion.div>
-            ))}
-          </div>
+        
         </div>
 
         {/* 🔗 QUICK LINKS */}
@@ -90,7 +73,7 @@ function Footer() {
               { name: "HABD System", path: "/services/HABD" },
               { name: "Machine Vision System", path: "/services/MVIS" },
               { name: "Water Level Monitoring", path: "/services/WLM" },
-              { name: "RTME", path: "/services/RTME" },
+              { name: "Rail Temperature Measuring Equipment", path: "/services/RTME" },
               { name: "Hot Wheel Detection System", path: "/services/HWD" }
             ].map((item, i) => (
               <li

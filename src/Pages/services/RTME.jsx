@@ -11,7 +11,7 @@ function RTME() {
 
   {/* 🔥 BACKGROUND IMAGE */}
   <img
-    src="/bg/rtme.png"
+    src="/bg/rtme.webp"
     alt="MVIS System"
     className="absolute inset-0 w-full h-full object-cover"
   />

@@ -1,157 +1,209 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 
-import Home from "./Pages/Home";
-import About from "./Pages/About";
 import MainLayout from "./Layout/MainLayout";
-
-
-// services Routes
-
-import HABD from "./Pages/services/HABD";
-import MVIS from "./Pages/services/MVIS";
-import WLM from "./Pages/services/WLM";
-import RTME from "./Pages/services/RTME";
-import HWD from "./Pages/services/HWD";
-import HBDDS from "./Pages/services/HBDDS";
-
-
-
-
-import Products from "./Pages/Products";
-
-// products Routes
-
-import WLM_P from "./Pages/products/WLM_P";
-import HABD_P from "./Pages/products/HABD_P";
-import PID from "./Pages/products/PID";
-import MVIS_P from "./Pages/products/MVIS_P";
-import PIS from "./Pages/products/PIS";
-
-
-
-
-
-import Contact from "./Pages/Contact";
 import ScrollToTop from "./Pages/ScrollTotop";
-import PCM_P from "./Pages/products/PCM_P";
+
+import Loader from "./components/Loader";
+
+/* ================= LAZY LOAD PAGES ================= */
+
+// MAIN PAGES
+const delayImport = (importFunc, delay = 1800) =>
+  new Promise((resolve) => {
+    setTimeout(() => resolve(importFunc()), delay);
+  });
+
+const Home = lazy(() =>
+  delayImport(() => import("./Pages/Home"))
+);
+const About = lazy(() => import("./Pages/About"));
+const Contact = lazy(() => import("./Pages/Contact"));
+const Products = lazy(() => import("./Pages/Products"));
+
+// SERVICES
+const HABD = lazy(() => import("./Pages/services/HABD"));
+const MVIS = lazy(() => import("./Pages/services/MVIS"));
+const WLM = lazy(() => import("./Pages/services/WLM"));
+const RTME = lazy(() => import("./Pages/services/RTME"));
+const HWD = lazy(() => import("./Pages/services/HWD"));
+const HBDDS = lazy(() => import("./Pages/services/HBDDS"));
+
+// PRODUCT DETAILS
+const PCM_P = lazy(() => import("./Pages/products/PCM_P"));
+const WLM_P = lazy(() => import("./Pages/products/WLM_P"));
+const HABD_P = lazy(() => import("./Pages/products/HABD_P"));
+const PID = lazy(() => import("./Pages/products/PID"));
+const MVIS_P = lazy(() => import("./Pages/products/MVIS_P"));
+const PIS = lazy(() => import("./Pages/products/PIS"));
 
 function App() {
   return (
     <BrowserRouter>
-    <ScrollToTop></ScrollToTop>
-      <Routes>
 
-        {/* HOME */}
-        <Route
-          path="/"
-          element={
-            <MainLayout>
-              <Home />
-            </MainLayout>
-          }
-        />
+      {/* AUTO SCROLL TOP */}
+      <ScrollToTop />
 
-        {/* ABOUT */}
-        <Route
-          path="/about"
-          element={
-            <MainLayout>
-              <About />
-            </MainLayout>
-          }
-        />
+      {/* LOADING SCREEN */}
+      <Suspense fallback={<Loader />}>
 
-        {/* ✅ SERVICES ROUTES WITH SAME LAYOUT */}
+        <Routes>
 
-        <Route
-          path="/services/habd"
-          element={
-            <MainLayout>
-              <HABD></HABD>
-            </MainLayout>
-          }
-        />
+          {/* ================= HOME ================= */}
+          <Route
+            path="/"
+            element={
+              <MainLayout>
+                <Home />
+              </MainLayout>
+            }
+          />
 
-        <Route
-          path="/services/mvis"
-          element={
-            <MainLayout>
-              <MVIS />
-            </MainLayout>
-          }
-        />
+          {/* ================= ABOUT ================= */}
+          <Route
+            path="/about"
+            element={
+              <MainLayout>
+                <About />
+              </MainLayout>
+            }
+          />
 
-    
+          {/* ================= SERVICES ================= */}
+          <Route
+            path="/services/habd"
+            element={
+              <MainLayout>
+                <HABD />
+              </MainLayout>
+            }
+          />
 
-        <Route
-          path="/services/wlm"
-          element={
-            <MainLayout>
-           <WLM></WLM>
-            </MainLayout>
-          }
-        />
+          <Route
+            path="/services/mvis"
+            element={
+              <MainLayout>
+                <MVIS />
+              </MainLayout>
+            }
+          />
 
-        <Route
-          path="/services/hwd"
-          element={
-            <MainLayout>
-           <HWD></HWD>
-            </MainLayout>
-          }
-        />
-        
-        <Route
-          path="/services/rtme"
-          element={
-            <MainLayout>
-             <RTME></RTME>
-            </MainLayout>
-          }
-        />
-             
-        <Route
-          path="/services/hbdds"
-          element={
-            <MainLayout>
-            <HBDDS></HBDDS>
-            </MainLayout>
-          }
-        />
+          <Route
+            path="/services/wlm"
+            element={
+              <MainLayout>
+                <WLM />
+              </MainLayout>
+            }
+          />
 
-        {/* products */}
-        <Route
-          path="/products"
-          element={
-            <MainLayout>
-              <Products></Products>
-            </MainLayout>
-          }
-        />
-         
-          {/* Products Routes */}
-         <Route path="/products/pcm" element={<MainLayout><PCM_P></PCM_P></MainLayout>}></Route>
-          <Route path="/products/wlm" element={<MainLayout><WLM_P></WLM_P></MainLayout>} />
-          <Route path="/products/mvis" element={<MainLayout><MVIS_P></MVIS_P></MainLayout>} />
-          <Route path="/products/habd" element={<MainLayout><HABD_P></HABD_P></MainLayout>} />
-          <Route path="/products/pid" element={<MainLayout><PID></PID></MainLayout>} />
-          <Route path="/products/pis" element={<MainLayout><PIS></PIS></MainLayout>} />
+          <Route
+            path="/services/rtme"
+            element={
+              <MainLayout>
+                <RTME />
+              </MainLayout>
+            }
+          />
 
-  
+          <Route
+            path="/services/hwd"
+            element={
+              <MainLayout>
+                <HWD />
+              </MainLayout>
+            }
+          />
 
-        <Route
-          path="/contact"
-          element={
-            <MainLayout>
-              <Contact></Contact>
-            </MainLayout>
-          }
-        />
+          <Route
+            path="/services/hbdds"
+            element={
+              <MainLayout>
+                <HBDDS />
+              </MainLayout>
+            }
+          />
 
-  
+          {/* ================= PRODUCTS ================= */}
+          <Route
+            path="/products"
+            element={
+              <MainLayout>
+                <Products />
+              </MainLayout>
+            }
+          />
 
-        
-      </Routes>
+          {/* ================= PRODUCT DETAILS ================= */}
+
+          <Route
+            path="/products/pcm"
+            element={
+              <MainLayout>
+                <PCM_P />
+              </MainLayout>
+            }
+          />
+
+          <Route
+            path="/products/wlm"
+            element={
+              <MainLayout>
+                <WLM_P />
+              </MainLayout>
+            }
+          />
+
+          <Route
+            path="/products/habd"
+            element={
+              <MainLayout>
+                <HABD_P />
+              </MainLayout>
+            }
+          />
+
+          <Route
+            path="/products/pid"
+            element={
+              <MainLayout>
+                <PID />
+              </MainLayout>
+            }
+          />
+
+          <Route
+            path="/products/mvis"
+            element={
+              <MainLayout>
+                <MVIS_P />
+              </MainLayout>
+            }
+          />
+
+          <Route
+            path="/products/pis"
+            element={
+              <MainLayout>
+                <PIS />
+              </MainLayout>
+            }
+          />
+
+          {/* ================= CONTACT ================= */}
+          <Route
+            path="/contact"
+            element={
+              <MainLayout>
+                <Contact />
+              </MainLayout>
+            }
+          />
+
+        </Routes>
+
+      </Suspense>
+
     </BrowserRouter>
   );
 }
