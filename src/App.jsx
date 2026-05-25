@@ -4,7 +4,7 @@ import { lazy, Suspense } from "react";
 import MainLayout from "./Layout/MainLayout";
 import ScrollToTop from "./Pages/ScrollTotop";
 
-import Loader from "./components/Loader";
+import Loader from "./Components/Loader";
 
 /* ================= LAZY LOAD PAGES ================= */
 
