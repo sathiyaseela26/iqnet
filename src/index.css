@@ -31,3 +31,14 @@ html {
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
+
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}

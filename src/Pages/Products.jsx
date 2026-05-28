@@ -45,147 +45,156 @@ function Products() {
       {/* ================= PRODUCTS GRID ================= */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
 
-        {products.map((product, index) => (
-          <motion.div
-            key={product.id}
-            initial={{ opacity: 0, y: 40, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="group cursor-pointer"
+       {products.map((product, index) => (
+  <motion.div
+    key={product.id}
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{
+      duration: 0.6,
+      delay: index * 0.1,
+    }}
+    viewport={{ once: true }}
+    className="group"
+  >
 
-            // ✅ MOBILE CLICK NAVIGATION
-            onClick={() => {
-              if (window.innerWidth < 768) {
-                navigate(`/products/${product.id}`);
-              }
-            }}
-          >
+    {/* CARD */}
+    <div
+      onClick={() => navigate(`/products/${product.id}`)}
+      className="
+        bg-white
+        rounded-3xl
+        overflow-hidden
 
-            {/* PERSPECTIVE */}
-            <div className="[perspective:1000px]">
+        border border-gray-100
 
-              {/* ================= FLIP CARD ================= */}
-              <div
-                className="
-                  relative w-full h-[320px]
-                  transition-transform duration-700
-                  [transform-style:preserve-3d]
+        shadow-[0_8px_30px_rgba(0,0,0,0.04)]
 
-                  md:group-hover:[transform:rotateY(180deg)]
-                "
-              >
+        hover:shadow-[0_20px_60px_rgba(10,65,116,0.15)]
 
-                {/* ================= FRONT SIDE ================= */}
-                <div
-                  className="
-                    absolute inset-0
-                    rounded-2xl
-                    bg-white
-                    border border-gray-200
-                    shadow-sm
-                    p-4
+        transition-all duration-500
 
-                    transition-all duration-500
-                    group-hover:shadow-[0_0_25px_rgba(10,65,116,0.25)]
+        hover:-translate-y-2
 
-                    [backface-visibility:hidden]
-                  "
-                >
+        cursor-pointer
+      "
+    >
 
-                  {/* IMAGE */}
-                  <div className="rounded-xl overflow-hidden">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="
-                        w-full h-[200px]
-                        object-cover
-                        transition duration-500
-                        group-hover:scale-110
-                      "
-                    />
-                  </div>
+      {/* IMAGE */}
+      <div className="relative pt-5 px-5 overflow-hidden">
 
-                  {/* PRODUCT NAME */}
-                  <h3 className="mt-4 text-center text-lg font-semibold transition group-hover:text-[#0A4174]">
-                    {product.name}
-                  </h3>
+        {/* IMAGE CONTAINER */}
+        <div className="overflow-hidden rounded-xl">
 
-                  {/* MOBILE BUTTON */}
-                  <div className="mt-5 flex justify-center md:hidden">
-                    <button
-                      className="
-                        px-5 py-1
-                        rounded-lg
-                        text-sm
-                        bg-[#0A4174]
-                        text-white
-                        hover:bg-blue-500
-                        transition
-                      "
-                    >
-                      View Details
-                    </button>
-                  </div>
-                </div>
+          <img
+            src={product.image}
+            alt={product.name}
+            className="
+              w-full h-[150px]
+              object-cover
+              rounded-xl
 
-                {/* ================= BACK SIDE (DESKTOP ONLY) ================= */}
-                <div
-                  className="
-                    hidden md:flex
-                    absolute inset-0
-                    rounded-2xl
+              transition-all duration-700 ease-out
 
-                    flex-col justify-center items-center
-                    text-center
-                    p-6
+              group-hover:scale-105
+              group-hover:brightness-95
+            "
+          />
 
-                    bg-white
-                    border border-[#0A4174]/30
-                    shadow-[0_0_25px_rgba(10,65,116,0.25)]
+        </div>
 
-                    [transform:rotateY(180deg)]
-                    [backface-visibility:hidden]
-                  "
-                >
+        {/* OVERLAY */}
+        <div
+          className="
+            absolute inset-0
+            bg-gradient-to-t
+            from-[#0A4174]/20
+            via-transparent
+            to-transparent
 
-                  {/* TITLE */}
-                  <h3 className="text-lg font-semibold mb-3 text-[#0A4174]">
-                    {product.name}
-                  </h3>
+            opacity-0
+            group-hover:opacity-100
 
-                  {/* DESCRIPTION */}
-                  <p className="text-sm text-gray-500 leading-relaxed">
-                    {product.desc}
-                  </p>
+            transition duration-500
 
-                  {/* BUTTON */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      navigate(`/products/${product.id}`);
-                    }}
-                    className="
-                      mt-5 px-5 py-2
-                      rounded-lg
-                      text-sm
-                      bg-[#0A4174]
-                      text-white
-                      hover:bg-blue-500
-                      transition
-                    "
-                  >
-                    View Details
-                  </button>
-                </div>
+            rounded-2xl
+            mx-5 mt-5
+          "
+        ></div>
 
-              </div>
-            </div>
+      </div>
 
-          </motion.div>
-        ))}
+      {/* CONTENT */}
+      <div className="p-4 text-center">
 
+        {/* TITLE */}
+        <h3
+          className="
+            text-xl font-bold
+            text-[#0A4174]
+
+            
+
+            transition duration-300
+          "
+        >
+          {product.name}
+        </h3>
+
+        {/* DESCRIPTION */}
+        <p
+          className="
+            text-gray-500
+            text-sm
+            leading-relaxed
+            mt-3
+            min-h-[50px]
+          "
+        >
+          {product.desc}
+        </p>
+
+        {/* BUTTON */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            navigate(`/products/${product.id}`);
+          }}
+          className="
+            mt-4
+            px-5 py-2.5
+
+            rounded-xl
+
+            text-sm
+            font-semibold
+            text-white
+
+            bg-[#FF4F18]
+            hover:bg-[#0A4174]
+
+            shadow-[0_10px_25px_rgba(10,65,116,0.25)]
+
+         
+
+            transition-all duration-300
+
+            hover:-translate-y-1
+            hover:scale-105
+
+            mx-auto
+            flex items-center justify-center
+          "
+        >
+          View Details
+        </button>
+
+      </div>
+
+    </div>
+
+  </motion.div>
+))}
       </div>
     </section>
   );

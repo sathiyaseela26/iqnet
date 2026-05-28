@@ -10,7 +10,7 @@ function PID() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="
-          text-4xl md:text-5xl font-extrabold mb-12
+          text-4xl  font-bold mb-12
           text-[#0A4174]
           drop-shadow-[0_4px_12px_rgba(0,0,0,0.15)]
         "
@@ -29,7 +29,7 @@ function PID() {
           className="relative group"
         >
           <img
-            src="/products/pid.jpg"
+            src="/products/piddd.jpg"
             alt="PID"
             className="
               rounded-2xl
@@ -54,19 +54,18 @@ function PID() {
           transition={{ duration: 0.7 }}
           className="space-y-6"
         >
-
-          <p className="text-xl font-semibold text-[#0A4174]">
+<p className="text-xl font-bold text-[#FF4F18] tracking-wide font-['Poppins']">
             Real-time visual communication for passengers
           </p>
 
-          <p className="text-gray-700 leading-relaxed text-lg">
+          <p className="text-gray-700 leading-relaxed ">
             The Passenger Information Display (PID) system provides real-time
             visual updates including train schedules, platform numbers, and
             service alerts. It enhances passenger awareness and ensures smooth
             navigation within railway stations.
           </p>
 
-          <p className="text-gray-500 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed">
             Designed with high-brightness displays and intelligent control
             systems, PID ensures clear visibility and reliable performance in
             both indoor and outdoor environments.
@@ -87,7 +86,7 @@ function PID() {
           transition={{ duration: 0.6 }}
           className="space-y-5"
         >
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#0A4174]">
+       <h2 className="text-xl font-bold text-[#FF4F18] tracking-wide font-['Poppins']">
             System Overview
           </h2>
 
@@ -97,7 +96,7 @@ function PID() {
             across multiple locations within railway stations.
           </p>
 
-          <p className="text-gray-500 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed">
             It supports dynamic content updates, ensuring passengers receive
             accurate and timely information regarding train movements and
             service changes.
@@ -111,18 +110,18 @@ function PID() {
           transition={{ duration: 0.6 }}
           className="space-y-5"
         >
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#0A4174]">
+          <h2 className="text-xl  font-bold text-[#FF4F18] tracking-wide font-['Poppins']">
             Applications
           </h2>
 
-          <ul className="space-y-3 text-gray-700">
+          <ul className="space-y-2 text-gray-700">
             <li>• Platform display boards</li>
             <li>• Arrival and departure displays</li>
             <li>• Station information systems</li>
             <li>• Emergency alert displays</li>
           </ul>
 
-          <p className="text-gray-500 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed">
             The PID system improves passenger experience by ensuring seamless,
             accurate, and real-time communication throughout railway networks.
           </p>

@@ -47,8 +47,8 @@ function HBDDS() {
           transition={{ duration: 0.8 }}
           className="space-y-6"
         >
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
-            Brake Disc Monitoring System
+          <h2 className="text-2xl md:text-3xl font-bold text-[#FF4F18]">
+            Hot Brake Disk Monitoring System
           </h2>
 
           <p className="text-gray-600 leading-relaxed">

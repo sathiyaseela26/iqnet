@@ -46,7 +46,7 @@ function MVIS() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#FF4F18] mb-4">
             Machine Vision Inspection System
           </h2>
 

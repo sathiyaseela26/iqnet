@@ -85,7 +85,7 @@ function About() {
             transition={{ duration: 0.7 }}
             className="space-y-6"
           >
-            <h3 className="text-2xl md:text-3xl font-semibold leading-relaxed text-gray-900">
+            <h3 className="text-2xl md:text-3xl font-bold leading-relaxed text-[#FF4F18]">
               IQNET SYSTEMS is a high-tech micro-entity founded in 2007 and based in Chennai, India.
             </h3>
 
@@ -121,7 +121,7 @@ function About() {
 
             {/* TEAM */}
             <div className="mt-10">
-              <h4 className="text-xl font-semibold mb-6 text-[#0A4174]">
+              <h4 className="text-xl font-bold mb-6 text-[#FF4F18]">
                 Our Team Strength
               </h4>
 

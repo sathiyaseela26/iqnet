@@ -23,7 +23,7 @@ const slides = [
     title: "IQNET SYSTEMS",
     highlight: "No 1 HABD Manufacturer In India",
     desc: "Leading railway safety solutions provider.",
-    img: "/bg/slide.webp"
+    img: "/bg/slide.jpg"
   },
   {
       title: "Next-Gen Inspection using",
@@ -86,12 +86,18 @@ desc: "AI-powered inspection with high-speed imaging and intelligent analytics."
 ];
 
 const slideAnimation = {
-  hidden: { opacity: 0, x: -80 }, // 👈 from LEFT
+  hidden: {
+    opacity: 0,
+    x: -80,
+  },
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
 };
   const [current, setCurrent] = useState(0);
   const [scroll, setScroll] = useState(0);
@@ -111,15 +117,15 @@ const slideAnimation = {
   },
   {
     name: "Passenger Display",
-    img: "/products/pid.jpg",
+    img: "/products/piddd.jpg",
   },
   {
     name: "HABD System",
-    img: "/products/HotAxle.jpg",
+    img: "/products/habd.jpg",
   },
   {
     name: "MVIS System",
-    img: "/products/mvis.jpg",
+    img: "/products/mv.jpg",
   }
 ];
   // 🔥 Slider
@@ -152,7 +158,7 @@ useEffect(() => {
     const p = document.getElementById("clients");
     const contact = document.getElementById("contact");
 
-    // 🔥 Detect TRUE bottom (footer end)
+  
     if (y + windowHeight >= fullHeight - 50) {
       setActiveSection("footer");
     }
@@ -209,119 +215,148 @@ const handleArrowClick = () => {
         <div className="h-full bg-[#0A4174]" style={{ width: `${scroll}%` }} />
       </div>
 
- {/* hero */}
-
-<section className="relative h-[93vh] flex items-center px-6 md:px-20 overflow-hidden bg-white">
+{/* hero */}
+<section className="relative h-[95vh] flex items-center px-5 sm:px-6 md:px-20 overflow-hidden bg-white">
 
   {/* 🔥 Fixed Background */}
-  <div
-   className="
-  absolute inset-0
-  bg-center bg-cover bg-no-repeat
-
-  max-[760px]:bg-top
-"
-   style={{
+<div
+  className="
+    absolute inset-0
+    bg-cover bg-no-repeat
+    bg-center
+    max-[760px]:bg-center
+  "
+ style={{
   backgroundImage: `url(${slides[current].img})`,
-  backgroundAttachment:
-    window.innerWidth > 760 ? "fixed" : "scroll",
+  backgroundAttachment: "scroll",
+  WebkitTransform: "translate3d(0,0,0)",
+  transform: "translate3d(0,0,0)",
+  backfaceVisibility: "hidden",
 }}
-  >
-    <div className="absolute inset-0 "></div>
+>
+    {/* overlay */}
+  
   </div>
 
-  
- {/* 🔥 CONTENT */}
-<motion.div
-  key={current} // 🔥 IMPORTANT (triggers on slide change)
-  variants={slideAnimation}
-  initial="hidden"
-  animate="visible"
-  className="relative z-10 max-w-3xl space-y-6"
->
-
-  {/* 🔵 TITLE */}
-  <h1 className="
-    text-3xl md:text-5xl 
-    font-['Poppins'] font-extrabold
-    leading-tight
-    text-[#EC5748]
-    [text-shadow:0_4px_10px_rgba(0,0,0,0.8),0_10px_25px_rgba(0,0,0,0.9)]
-  ">
-    {slides[current].title}
-  </h1>
-
-  {/* 🔵 HIGHLIGHT */}
-  <h3 className="
-    text-3xl md:text-5xl 
-    font-bold mt-2
-    text-white
-    [text-shadow:0_4px_12px_rgba(0,0,0,0.9),0_10px_30px_rgba(0,0,0,1)]
-  ">
-    {slides[current].highlight}
-  </h3>
-
-  {/* 🔵 DESC */}
-  <p className="
-    text-lg md:text-xl 
-    font-[Inter] 
-    text-gray-100 
-    leading-relaxed 
-    max-w-xl
-    drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]
-  ">
-    {slides[current].desc}
-  </p>
-
-  {/* 🔵 BUTTON */}
-  <button
-    onClick={() => navigate("/about")}
-    className="
-      relative mt-4 px-4 py-2 rounded-xl
-      font-[Poppins] font-semibold text-white
-      bg-white/10 backdrop-blur-lg
-      border border-white/20
-      shadow-[0_8px_32px_rgba(0,0,0,0.25)]
-      overflow-hidden
-      transition-all duration-300 ease-in-out
-      hover:bg-white/20
-      hover:border-white/40
-      hover:scale-105
-      hover:shadow-[0_10px_40px_rgba(255,255,255,0.25)]
-    "
+  {/* 🔥 CONTENT */}
+  <motion.div
+    key={current}
+    variants={slideAnimation}
+    initial="hidden"
+    animate="visible"
+   className="
+  relative z-10
+  max-w-3xl
+  space-y-4 md:space-y-6
+  max-[760px]:text-center
+  max-[760px]:mx-auto
+  max-[760px]:px-2
+"
   >
-    <span className="relative z-10 flex items-center gap-2">
-      Explore →
-    </span>
-  </button>
 
-</motion.div>
+    {/* 🔵 TITLE */}
+    <h1
+      className="
+        text-2xl sm:text-3xl md:text-5xl
+        font-['Poppins'] font-extrabold
+        leading-snug md:leading-tight
 
-{/* 🔥 HERO DOTS */}
-<div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 z-20">
+        text-[#EC5748]
 
-  {slides.map((_, i) => (
-    <div
-      key={i}
-      onClick={() => setCurrent(i)}
-      className={`
-        relative cursor-pointer rounded-full transition-all duration-300
+        [text-shadow:0_4px_10px_rgba(0,0,0,0.8),0_10px_25px_rgba(0,0,0,0.9)]
 
-        ${current === i
-          ? "w-6 h-2 bg-[#FF5100] shadow-[0_0_10px_rgba(255,81,0,0.8)]"
-          : "w-2 h-2 bg-white hover:bg-white hover:scale-110"}
-      `}
+        max-[760px]:text-[28px]
+      "
     >
+      {slides[current].title}
+    </h1>
 
-      {/* 🔥 Active Glow Animation */}
-      {current === i && (
-        <span className="absolute inset-0 rounded-full bg-[#FF5100]/40 blur-md"></span>
-      )}
+    {/* 🔵 HIGHLIGHT */}
+    <h3
+      className="
+        text-2xl sm:text-3xl md:text-5xl
+        font-bold
+        mt-1 md:mt-2
 
-    </div>
-  ))}
+        text-white
 
-</div>
+        [text-shadow:0_4px_12px_rgba(0,0,0,0.9),0_10px_30px_rgba(0,0,0,1)]
+
+        max-[760px]:text-[30px]
+      "
+    >
+      {slides[current].highlight}
+    </h3>
+
+    {/* 🔵 DESC */}
+    <p
+      className="
+        text-sm sm:text-base md:text-xl
+        font-[Inter]
+        text-gray-100
+        leading-relaxed
+
+        max-w-xl
+        max-[760px]:max-w-full
+
+        drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]
+      "
+    >
+      {slides[current].desc}
+    </p>
+
+    {/* 🔵 BUTTON */}
+    <button
+      onClick={() => navigate("/about")}
+      className="
+        relative mt-2 md:mt-4
+        px-4 py-2 md:px-5 md:py-3
+        rounded-xl
+
+        text-sm md:text-base
+
+        font-[Poppins] font-semibold text-white
+
+        bg-white/10 backdrop-blur-lg
+        border border-white/20
+
+        shadow-[0_8px_32px_rgba(0,0,0,0.25)]
+
+        overflow-hidden
+        transition-all duration-300 ease-in-out
+
+        hover:bg-white/20
+        hover:border-white/40
+        hover:scale-105
+        hover:shadow-[0_10px_40px_rgba(255,255,255,0.25)]
+      "
+    >
+      <span className="relative z-10 flex items-center gap-2">
+        Explore →
+      </span>
+    </button>
+  </motion.div>
+
+  {/* 🔥 HERO DOTS */}
+  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 z-20">
+    {slides.map((_, i) => (
+      <div
+        key={i}
+        onClick={() => setCurrent(i)}
+        className={`
+          relative cursor-pointer rounded-full transition-all duration-300
+
+          ${current === i
+            ? "w-6 h-2 bg-[#FF5100] shadow-[0_0_10px_rgba(255,81,0,0.8)]"
+            : "w-2 h-2 bg-white hover:bg-white hover:scale-110"}
+        `}
+      >
+        {current === i && (
+          <span className="absolute inset-0 rounded-full bg-[#FF5100]/40 blur-md"></span>
+        )}
+      </div>
+    ))}
+  </div>
 </section>
 {/* ================= SERVICES ================= */}
 <section
@@ -499,151 +534,151 @@ const handleArrowClick = () => {
 {products.map((product, index) => (
   <motion.div
     key={product.id}
-    initial={{ opacity: 0, y: 40, scale: 0.9 }}
-    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-    transition={{ duration: 0.6, delay: index * 0.1 }}
-    viewport={{ once: true }}
-    className="group cursor-pointer"
-
-    // ✅ MOBILE CLICK
-    onClick={() => {
-      if (window.innerWidth < 760) {
-        navigate(`/products/${product.id}`);
-      }
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{
+      duration: 0.6,
+      delay: index * 0.1,
     }}
+    viewport={{ once: true }}
+    className="group"
   >
 
-    {/* 🔥 PERSPECTIVE */}
-    <div className="[perspective:1000px]">
+    {/* CARD */}
+    <div
+      onClick={() => navigate(`/products/${product.id}`)}
+      className="
+        bg-white
+        rounded-3xl
+        overflow-hidden
 
-      {/* ================= CARD ================= */}
-      <div
-        className="
-          relative w-full h-[320px]
-          transition-transform duration-700
-          [transform-style:preserve-3d]
+        border border-gray-200
 
-          min-[760px]:group-hover:[transform:rotateY(180deg)]
-        "
-      >
+        shadow-sm
+        hover:shadow-[0_20px_60px_rgba(10,65,116,0.18)]
 
-        {/* ================= FRONT ================= */}
-        <div
+        transition-all duration-500
+
+        hover:-translate-y-2
+
+        cursor-pointer
+      "
+    >
+
+      {/* IMAGE */}
+{/* IMAGE */}
+<div className="relative pt-5 px-5 overflow-hidden">
+
+  {/* IMAGE CONTAINER */}
+  <div className="overflow-hidden rounded-2xl">
+
+    <img
+      src={product.image}
+      alt={product.name}
+      className="
+        w-full h-[200px]
+        object-cover
+        rounded-2xl
+
+        transition-all duration-700 ease-out
+
+        group-hover:scale-105
+        group-hover:brightness-95
+      "
+    />
+
+  </div>
+
+  {/* PROFESSIONAL OVERLAY */}
+  <div
+    className="
+      absolute inset-0
+      bg-gradient-to-t
+      from-[#0A4174]/20
+      via-transparent
+      to-transparent
+
+      opacity-0
+      group-hover:opacity-100
+
+      transition duration-500
+
+      rounded-2xl
+      mx-5 mt-5
+    "
+  ></div>
+
+</div>
+
+     
+
+      {/* CONTENT */}
+      <div className="p-6">
+
+        {/* TITLE */}
+        <h3
           className="
-            absolute inset-0
-            rounded-2xl
-            bg-white
-            border border-gray-200
-            shadow-md
-            p-4
+            text-xl font-bold
+            text-[#0A4174]
 
-            transition-all duration-500
+            group-hover:text-[#FF4F18]
 
-            group-hover:shadow-[0_0_25px_rgba(10,65,116,0.25)]
-
-            [backface-visibility:hidden]
+            transition
           "
         >
+          {product.name}
+        </h3>
 
-          {/* IMAGE */}
-          <div className="rounded-xl overflow-hidden">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="
-                w-full h-[200px]
-                object-cover
-                transition duration-500
-                group-hover:scale-110
-              "
-            />
-          </div>
-
-          {/* NAME */}
-          <h3
-            className="
-              mt-4 text-center text-lg font-semibold
-              transition
-              group-hover:text-[#0A4174]
-            "
-          >
-            {product.name}
-          </h3>
-
-          {/* 🔥 MOBILE BUTTON */}
-          <div className="mt-5 flex justify-center min-[760px]:hidden">
-            <button
-              className="
-                px-5 py-1 
-                rounded-lg
-                text-sm
-                bg-[#0A4174]
-                text-white
-                hover:bg-blue-500
-                transition
-              "
-            >
-              View Details
-            </button>
-          </div>
-
-        </div>
-
-        {/* ================= BACK SIDE (DESKTOP ONLY) ================= */}
-        <div
+        {/* DESCRIPTION */}
+        <p
           className="
-            hidden min-[760px]:flex
-
-            absolute inset-0
-            rounded-2xl
-
-            flex-col justify-center items-center
-            text-center
-            p-6
-
-            bg-white
-            border border-[#0A4174]/30
-
-            shadow-[0_0_25px_rgba(10,65,116,0.25)]
-
-            [transform:rotateY(180deg)]
-            [backface-visibility:hidden]
+            text-gray-500
+            text-sm
+            leading-relaxed
+            mt-3
+            min-h-[70px]
           "
         >
+          {product.desc}
+        </p>
 
-          {/* TITLE */}
-          <h3 className="text-lg font-semibold mb-3 text-[#0A4174]">
-            {product.name}
-          </h3>
+       
+        {/* BUTTON */}
+<button
+  onClick={(e) => {
+    e.stopPropagation();
+    navigate(`/products/${product.id}`);
+  }}
+  className="
+    mt-6
+    px-5 py-2.5
 
-          {/* DESC */}
-          <p className="text-sm text-gray-500 leading-relaxed">
-            {product.desc}
-          </p>
+    rounded-xl
 
-          {/* BUTTON */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              navigate(`/products/${product.id}`);
-            }}
-            className="
-              mt-4 px-5 py-2
-              text-sm rounded-lg
+    text-sm
+    font-semibold
+    text-white
 
-              bg-[#0A4174]
-              text-white
+    bg-[#FF4F18]
+    hover:bg-[#0A4174]
 
-              hover:bg-blue-500
-              transition
-            "
-          >
-            View Details
-          </button>
+    shadow-[0_10px_25px_rgba(10,65,116,0.25)]
 
-        </div>
+   
 
+    transition-all duration-300
+
+    hover:-translate-y-1
+    hover:scale-105
+
+    mx-auto
+    flex items-center justify-center
+  "
+>
+  View Details
+</button>
       </div>
+
     </div>
 
   </motion.div>

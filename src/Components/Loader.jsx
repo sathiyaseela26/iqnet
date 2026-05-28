@@ -11,9 +11,9 @@ function Loader() {
           clearInterval(timer);
           return 100;
         }
-        return old + 5;
+        return old + 10;
       });
-    }, 120);
+    }, 40);
 
     return () => clearInterval(timer);
   }, []);
@@ -34,7 +34,7 @@ function Loader() {
           animate={{ rotate: 360 }}
           transition={{
             repeat: Infinity,
-            duration: 1.2,
+            duration: 0.7,
             ease: "linear",
           }}
           className="
@@ -74,32 +74,15 @@ function Loader() {
 
    
 
-        {/* PROGRESS BAR */}
-        <div className="w-64 h-2 bg-gray-200 rounded-full mt-6 overflow-hidden">
+     
 
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: `${progress}%` }}
-            transition={{ ease: "easeOut" }}
-            className="
-              h-full
-              bg-gradient-to-r
-              from-[#FF4F18]
-              to-[#0A4174]
-            "
-          />
-
-        </div>
-
-        {/* PERCENT */}
-        <p className="mt-3 text-sm text-gray-600 font-medium">
-          {progress}%
-        </p>
-
+     
       </div>
 
     </div>
   );
 }
+
+
 
 export default Loader;

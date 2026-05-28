@@ -9,7 +9,7 @@ import Loader from "./Components/Loader";
 /* ================= LAZY LOAD PAGES ================= */
 
 // MAIN PAGES
-const delayImport = (importFunc, delay = 1800) =>
+const delayImport = (importFunc, delay = 250) =>
   new Promise((resolve) => {
     setTimeout(() => resolve(importFunc()), delay);
   });

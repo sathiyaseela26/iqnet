@@ -10,7 +10,7 @@ function PIS() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="
-          text-4xl md:text-5xl font-extrabold mb-12
+          text-4xl  font-bold mb-12
           text-[#0A4174]
           drop-shadow-[0_4px_12px_rgba(0,0,0,0.15)]
         "
@@ -29,7 +29,7 @@ function PIS() {
           className="relative group"
         >
           <img
-            src="/products/Tejas.jpg"
+            src="/products/pis.jpg"
             alt="PIS"
             className="
               rounded-2xl
@@ -55,18 +55,18 @@ function PIS() {
           className="space-y-6"
         >
 
-          <p className="text-xl font-semibold text-[#0A4174]">
+       <p className="text-xl font-bold text-[#FF4F18] tracking-wide font-['Poppins']">
             Real-time passenger communication and information delivery
           </p>
 
-          <p className="text-gray-700 leading-relaxed text-lg">
+          <p className="text-gray-700 leading-relaxed ">
             The Passenger Information System (PIS) delivers real-time updates,
             announcements, and visual information to passengers across railway
             stations and onboard trains. It ensures clear communication and
             enhances the overall travel experience.
           </p>
 
-          <p className="text-gray-500 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed">
             By integrating audio-visual systems with centralized control, PIS
             enables accurate scheduling updates, emergency alerts, and seamless
             information flow for passengers and operators.
@@ -87,7 +87,7 @@ function PIS() {
           transition={{ duration: 0.6 }}
           className="space-y-5"
         >
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#0A4174]">
+           <h2 className="text-xl font-bold text-[#FF4F18] tracking-wide font-['Poppins']">
             System Overview
           </h2>
 
@@ -98,7 +98,7 @@ function PIS() {
             regarding train schedules, delays, and platform changes.
           </p>
 
-          <p className="text-gray-500 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed">
             Designed for scalability, the system supports deployment across
             stations and onboard environments, maintaining consistent
             communication standards.
@@ -112,18 +112,18 @@ function PIS() {
           transition={{ duration: 0.6 }}
           className="space-y-5"
         >
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#0A4174]">
+      <h2 className="text-xl  font-bold text-[#FF4F18] tracking-wide font-['Poppins']">
             Applications
           </h2>
 
-          <ul className="space-y-3 text-gray-700">
+          <ul className="space-y-2 text-gray-700">
             <li>• Station display systems</li>
             <li>• Onboard passenger announcements</li>
             <li>• Real-time schedule updates</li>
             <li>• Emergency communication systems</li>
           </ul>
 
-          <p className="text-gray-500 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed">
             The system enhances passenger convenience while improving
             operational efficiency and communication reliability across railway
             networks.

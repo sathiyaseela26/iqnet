@@ -49,7 +49,7 @@ function RTME() {
           transition={{ duration: 0.8 }}
           className="space-y-6"
         >
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#FF4F18]">
             Rail Temperature Monitoring System
           </h2>
 
