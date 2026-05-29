@@ -38,7 +38,7 @@ function MVIS() {
 </div>
 
       {/* 🔥 MAIN CONTENT */}
-      <div className="grid md:grid-cols-2 gap-12 items-center py-20 px-6 md:px-20">
+      <div className="grid md:grid-cols-2 gap-12 items-start py-20 px-6 md:px-20">
 
         {/* LEFT CONTENT */}
         <motion.div
@@ -46,10 +46,7 @@ function MVIS() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-[#FF4F18] mb-4">
-            Machine Vision Inspection System
-          </h2>
-
+         
           <p className="text-gray-600 leading-relaxed mb-4">
             Our Machine Vision System is a high-speed optical solution designed to
             automatically capture images of moving trains and detect rolling stock defects.
@@ -60,6 +57,14 @@ function MVIS() {
   advanced algorithms, and provides actionable insights for efficient monitoring
   and maintenance.
 </p>
+<p className="text-gray-600 leading-relaxed mb-4">
+  MVIS is engineered to operate efficiently in harsh railway environments,
+  delivering reliable performance during day and night operations. The system
+  integrates high-resolution cameras, intelligent image processing, and automated
+  inspection mechanisms to improve operational safety and reduce manual inspection efforts.
+</p>
+
+
           {/* 🔥 POINTS */}
           <div className="space-y-3 text-gray-700">
             <div className="flex items-center gap-2">
@@ -74,19 +79,22 @@ function MVIS() {
             <div className="flex items-center gap-2">
               • Provides real-time monitoring and analysis
             </div>
+            
           </div>
+
         </motion.div>
 
+{/* RIGHT IMAGE */}
 {/* RIGHT IMAGE */}
 <motion.div
   initial={{ opacity: 0, x: 80 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8 }}
-  className="w-full flex items-center"
+  className="w-full"
 >
-  <div className="w-full h-[370px]  overflow-hidden  shadow-xl">
+ <div className="w-full h-[220px] sm:h-[280px] md:h-[370px] overflow-hidden rounded-2xl shadow-xl">
     <img
-      src="/services/mviss.jpg"
+      src="/services/mv.jpg"
       alt="MVIS System"
       className="w-full h-full object-cover"
     />

@@ -18,6 +18,8 @@ function Home() {
   const navigate = useNavigate();
   
   const [productIndex, setProductIndex] = useState(0);
+
+  const [isMobile, setIsMobile] = useState(false);
 const slides = [
   {
     title: "IQNET SYSTEMS",
@@ -136,6 +138,18 @@ const slideAnimation = {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth <= 760);
+  };
+
+  checkMobile();
+
+  window.addEventListener("resize", checkMobile);
+
+  return () => window.removeEventListener("resize", checkMobile);
+}, []);
+
   // 🔥 Scroll progress
   useEffect(() => {
     const handleScroll = () => {
@@ -240,7 +254,7 @@ const handleArrowClick = () => {
 
   {/* 🔥 CONTENT */}
   <motion.div
-    key={current}
+  key={isMobile ? "mobile-static" : current}
     variants={slideAnimation}
     initial="hidden"
     animate="visible"

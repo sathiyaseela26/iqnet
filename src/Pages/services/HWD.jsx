@@ -38,7 +38,7 @@ function HWD() {
 
 </div>
       {/* 🔥 ABOUT SECTION */}
-      <div className="grid md:grid-cols-2 gap-12 items-center py-20 px-6 md:px-20">
+      <div className="grid md:grid-cols-2 gap-12 items-start py-20 px-6 md:px-20">
 
         {/* LEFT CONTENT */}
         <motion.div
@@ -47,9 +47,7 @@ function HWD() {
           transition={{ duration: 0.8 }}
           className="space-y-6"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-[#FF4F18]">
-            Hot Wheel Detection System
-          </h2>
+         
 
           <p className="text-gray-600 leading-relaxed">
             Our Wheel Detection System continuously monitors the temperature of railway wheels in real-time
@@ -99,13 +97,13 @@ function HWD() {
         </motion.div>
 
         {/* RIGHT IMAGE PLACEHOLDER */}
-      <motion.div
+   <motion.div
   initial={{ opacity: 0, x: 80 }}
   whileInView={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.8 }}
-  className="w-full flex items-center"
+  className="w-full"
 >
-  <div className="w-full h-[370px]  overflow-hidden  shadow-xl">
+ <div className="w-full h-[220px] sm:h-[280px] md:h-[370px] overflow-hidden rounded-2xl shadow-xl">
     <img
       src="/services/trainwheel.jpg"
       alt="MVIS System"
