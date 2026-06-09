@@ -6,17 +6,17 @@ function About() {
     <section className="bg-[#f8fafc] text-gray-900 min-h-screen">
 
       {/* ================= HERO (NEW) ================= */}
-      <div className="relative py-24 px-6 md:px-20 overflow-hidden">
+      <div className="relative py-20 px-6 md:px-20 overflow-hidden">
 
         {/* 🔥 BACKGROUND IMAGE */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/bg/about.webp')" // 👉 add your image
+            backgroundImage: "url('/bg/k.jpg')" // 👉 add your image
           }}
         >
           {/* 🔥 DARK OVERLAY */}
-          <div className="absolute inset-0 bg-black/70"></div>
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
 
         {/* 🔥 CONTENT */}
@@ -85,7 +85,7 @@ function About() {
             transition={{ duration: 0.7 }}
             className="space-y-6"
           >
-            <h3 className="text-2xl md:text-3xl font-bold leading-relaxed text-[#FF4F18]">
+            <h3 className="text-2xl md:text-3xl font-bold leading-relaxed text-[#0A4174]">
               IQNET SYSTEMS is a high-tech micro-entity founded in 2007 and based in Chennai, India.
             </h3>
 

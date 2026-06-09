@@ -29,7 +29,7 @@ function MVIS_P() {
           className="relative group"
         >
           <img
-            src="/products/mv.jpg"
+            src="/products/a.jpg"
             alt="MVIS"
             className="
               rounded-2xl

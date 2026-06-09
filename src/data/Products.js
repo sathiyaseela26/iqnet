@@ -26,13 +26,13 @@ const products = [
   {
     id: "mvis",
     name: "Machine Vision Inspection",
-    image: "/products/mv.jpg",
+    image: "/products/c.jpg",
     desc: "AI-powered inspection system for defect detection in trains.",
   },
   {
     id: "pis",
     name: "Passenger Information System",
-    image: "/products/pis.jpg",
+    image: "/products/d.jpg",
     desc: "Integrated communication system for passenger announcements.",
   },
 ];
